@@ -1,9 +1,20 @@
 <div ngClass="landing__container">
     <div ngClass="landing__textzone">
-        <h1 ngClass="landing__pacific" >Du Pacifique</h1>
         <button (click)="toHome()" ngClass="landing__CTA">
             Visiter
         </button>
-        <h1 ngClass="landing__atlantic">à l'Atlantique</h1>
+        
+        <svg width="200" height="200">
+            <circle cx="100" cy="100" r="80" stroke="none" fill="transparent" />
+            <path id="circle" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" stroke="none" fill="none"/>
+            <text font-size="16" text-anchor="middle" dy="-10">
+                <textPath xlink:href="#circle" startOffset="50%">
+                    Panama, Pro Mundi Beneficio / Panama, Pro Mundi Beneficio /
+                </textPath>
+            </text>
+        </svg>
+        
+        
+          
     </div>
 </div>

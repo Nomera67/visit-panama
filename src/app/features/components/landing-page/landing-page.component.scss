@@ -1,34 +1,50 @@
+@use '../../../../styles.scss' as *;
+
 .landing{
     &__container{
         height: 100vh;
         width: 100vw;
-        background-image: url('../../../../assets/background/landing-page/pexels-ángel-lópez-15104924.jpg');
+        background-image: url('../../../../assets/background/landing-page/aljoscha-laschgari-Wb_UdXBlvQA-unsplash.jpg');
         background-size: cover;
-        position: relative;
+        display: grid;
+        place-items: center;
     }
     &__textzone{
-        position: absolute;
-        top: 35%;
-        left: 50%;
-        border: 1px solid red;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    &__pacific{
-
-    }
-    &__atlantic{
-
+        position: relative;
+        overflow: visible;
+        display: grid;
+        place-items: center;
+        & > svg{
+            overflow: visible;
+            animation: panamaRotate 15s linear infinite;
+        }
     }
     &__CTA{
+        position: absolute;
+        top: 13%;
+        left: 50%;
+        transform: translateX(-50%);
         width: 150px;
         height: 150px;
-        border: 2px solid #00a8e8;
-        color: #00a8e8;
-        font-size: 3rem;
-        background-color: transparent;
+        border: 2px solid #0003a0;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        background-color: #0003a0;
         border-radius: 50%;
+        cursor: pointer;
+    }
+}
+
+.landing__title, .landing__devise{
+    color: #0003a0;
+}
+
+@keyframes panamaRotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
     }
 }
