@@ -1,0 +1,33 @@
+@use '../../../../styles.scss' as *;
+
+@keyframes hideReveal {
+    from{
+        opacity: 1;
+    }
+    99%{
+        opacity: 0;
+    }
+    100%{
+        z-index: -1;
+        opacity: 0;
+    }
+}
+
+.home{
+    &__container{
+        display: grid;
+        place-items: center;
+
+    }
+    &__hide{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 2;
+        background: #0003a0;
+        opacity: 1;
+        animation: hideReveal 2s ease-in-out both;
+    }
+}

@@ -1,13 +1,54 @@
 @use '../../../../styles.scss' as *;
 
+@keyframes containerDesappear {
+    from{
+        filter: blur(0);
+    }
+    50%{
+        filter: blur(.4rem);
+    }
+    100%{
+        filter: blur(0rem);
+    }
+}
+
+@keyframes disappearActive {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.hideContainer{
+    animation: containerDesappear 3s 3.5s ease forwards;
+}
+
+.disappearActive{
+    animation: disappearActive 2s 4.5s ease forwards;
+}
+
 .landing{
+    &__disappear{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 1;
+        background: #0003a0;
+        opacity: 0;
+    }
     &__container{
         height: 100vh;
         width: 100vw;
-        background-image: url('../../../../assets/background/landing-page/aljoscha-laschgari-Wb_UdXBlvQA-unsplash.jpg');
+        background: url('../../../../assets/background/landing-page/aljoscha-laschgari-Wb_UdXBlvQA-unsplash.jpg');
+        background-position: center;
         background-size: cover;
         display: grid;
         place-items: center;
+        z-index: -1;
     }
     &__textzone{
         position: relative;
@@ -16,29 +57,92 @@
         place-items: center;
         & > svg{
             overflow: visible;
-            animation: panamaRotate 15s linear infinite;
+            animation: panamaRotate 15s linear infinite, panamaAppear 1.5s 2.5s ease-in-out backwards;
         }
     }
     &__CTA{
         position: absolute;
         top: 13%;
         left: 50%;
-        transform: translateX(-50%);
+        transform:  scale(1) translateX(-50%);
         width: 150px;
         height: 150px;
-        border: 2px solid #0003a0;
+        border: 2px solid transparent;
         color: white;
         font-size: 2rem;
-        font-weight: bold;
-        background-color: #0003a0;
+        font-weight: bold; 
+        background: transparent;
         border-radius: 50%;
         cursor: pointer;
+        z-index: 4;
+        transition: all 1.5s ease-in-out;
+        animation: ctaAppear 2.5s ease backwards;
+        overflow: hidden;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation:  backgroundDefilement 15s alternate infinite;
+            background: url('../../../../assets/background/landing-page/wave.svg') transparent;
+            background-size: 1000%;
+            background-position: 50% 0%;
+            filter: blur(1rem);
+        }
+        &>span{
+            mix-blend-mode: difference;
+            z-index: 5;
+            backdrop-filter: 2rem;
+        }
+        &:hover{
+            background-size: 2000%;
+            transform: scale(1.2) translate(-42%);
+        }
     }
+}
+
+.hideCTA{
+    animation: ctaDesappear 2s ease-in-out forwards;
+}
+.hideSvg{
+    animation: panamaDesappear 2s 1.5s ease forwards;
 }
 
 .landing__title, .landing__devise{
     color: #0003a0;
 }
+
+@keyframes ctaAppear {
+    from{
+        transform: scale(0) translateX(-200%);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(-50%);
+        opacity: 1;
+    }
+    
+}
+
+@keyframes backgroundDefilement {
+    from{
+        background-position: 0% 50%;
+    }
+    to{
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes pause {
+    0% {
+      animation-play-state: running;
+    }
+    100% {
+      animation-play-state: paused;
+    }
+  }
 
 @keyframes panamaRotate {
     from{
@@ -47,4 +151,40 @@
     to{
         transform: rotate(360deg);
     }
+}
+
+@keyframes panamaAppear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes ctaDesappear {
+    0%{
+        opacity: 1;
+    }
+    75%{
+        background-color: #0003a0;
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+
+    
+}
+
+@keyframes panamaDesappear {
+    from{
+        opacity: 1;
+        transform: scale(1);
+    }
+    to{
+        opacity: 0;
+        transform: scale(.3);
+    }
+    
 }
