@@ -13,8 +13,6 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
-
   toHome() {
     const button = document.getElementById('homeButton');
     const svg = document.getElementById('homeSvg');

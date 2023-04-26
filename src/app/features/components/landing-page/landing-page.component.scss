@@ -1,34 +1,4 @@
 @use '../../../../styles.scss' as *;
-
-@keyframes containerDesappear {
-    from{
-        filter: blur(0);
-    }
-    90%{
-        filter: blur(.4rem);
-    }
-    100%{
-        filter: blur(0rem);
-    }
-}
-
-@keyframes disappearActive {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-}
-
-.hideContainer{
-    animation: containerDesappear 3s 3.5s ease forwards;
-}
-
-.disappearActive{
-    animation: disappearActive 2s 4.5s ease forwards;
-}
-
 .landing{
     &__disappear{
         position: absolute;
@@ -110,100 +80,9 @@
 .hideSvg{
     animation: panamaDesappear 2s 1.5s ease forwards;
 }
-
-@keyframes ctaAppear {
-    from{
-        transform: scale(0) translateX(-100%);
-        opacity: 0;
-        color: rgba(250, 250, 250, 0);
-    }
-    to{
-        transform: scale(1) translateX(-50%);
-        opacity: 1;
-        color: white;
-    }
-    
+.hideContainer{
+    animation: containerDesappear 3s 3.5s ease forwards;
 }
-
-@keyframes spanAppear {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-    
-}
-
-@keyframes ctaBeforeAppear {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-    
-}
-
-@keyframes backgroundDefilement {
-    from{
-        background-position: 0% 50%;
-    }
-    to{
-        background-position: 100% 50%;
-    }
-}
-
-@keyframes pause {
-    0% {
-      animation-play-state: running;
-    }
-    100% {
-      animation-play-state: paused;
-    }
-  }
-
-@keyframes panamaRotate {
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes panamaAppear {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-}
-
-@keyframes ctaDesappear {
-    0%{
-        opacity: 1;
-    }
-    75%{
-        background-color: #0003a0;
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-    }
-
-    
-}
-
-@keyframes panamaDesappear {
-    from{
-        opacity: 1;
-        transform: scale(1);
-    }
-    to{
-        opacity: 0;
-        transform: scale(.3);
-    }
-    
+.disappearActive{
+    animation: disappearActive 2s 4.5s ease forwards;
 }
