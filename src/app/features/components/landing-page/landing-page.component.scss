@@ -4,7 +4,7 @@
     from{
         filter: blur(0);
     }
-    50%{
+    90%{
         filter: blur(.4rem);
     }
     100%{
@@ -37,7 +37,7 @@
         height: 100vh;
         width: 100vw;
         z-index: 1;
-        background: #0003a0;
+        background: #000000;
         opacity: 0;
     }
     &__container{
@@ -57,7 +57,7 @@
         place-items: center;
         & > svg{
             overflow: visible;
-            animation: panamaRotate 15s linear infinite, panamaAppear 1.5s 2.5s ease-in-out backwards;
+            animation: panamaRotate 15s linear infinite, panamaAppear 2s 0.5s ease-in-out backwards;
         }
     }
     &__CTA{
@@ -76,7 +76,7 @@
         cursor: pointer;
         z-index: 4;
         transition: all 1.5s ease-in-out;
-        animation: ctaAppear 2.5s ease backwards;
+        // animation: ctaAppear 2.5s 2s ease backwards;
         overflow: hidden;
         &::before{
             content: '';
@@ -85,16 +85,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            animation:  backgroundDefilement 15s alternate infinite;
+            animation:  ctaBeforeAppear 2s 2s ease backwards,backgroundDefilement 15s alternate infinite;
             background: url('../../../../assets/background/landing-page/wave.svg') transparent;
-            background-size: 1000%;
+            background-size: 1100%;
             background-position: 50% 0%;
-            filter: blur(1rem);
+            filter: blur(0.5rem);
         }
         &>span{
             mix-blend-mode: difference;
             z-index: 5;
             backdrop-filter: 2rem;
+            animation: spanAppear 1s 2.75s ease backwards;
         }
         &:hover{
             background-size: 2000%;
@@ -110,17 +111,35 @@
     animation: panamaDesappear 2s 1.5s ease forwards;
 }
 
-.landing__title, .landing__devise{
-    color: #0003a0;
-}
-
 @keyframes ctaAppear {
     from{
-        transform: scale(0) translateX(-200%);
+        transform: scale(0) translateX(-100%);
         opacity: 0;
+        color: rgba(250, 250, 250, 0);
     }
     to{
         transform: scale(1) translateX(-50%);
+        opacity: 1;
+        color: white;
+    }
+    
+}
+
+@keyframes spanAppear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
+}
+
+@keyframes ctaBeforeAppear {
+    from{
+        opacity: 0;
+    }
+    to{
         opacity: 1;
     }
     
