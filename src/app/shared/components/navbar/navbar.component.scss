@@ -8,6 +8,20 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    background-color: transparent;
+    position: fixed;
+    z-index: 3;
+    &:before{
+        content: '';
+        width: 100%;
+        height: 4rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background: rgb(200,16,46);
+        background: linear-gradient(90deg, rgba(0,94,184,.6) 30%, rgba(200,16,46,.6) 100%);
+    }
 }
 
 .mobileNavToggle{
@@ -15,17 +29,39 @@ header{
 }
 
 .logo__container{
+    height: fit-content;
+    z-index: 5;
     &>img{
+        
         width: 100px;
         cursor: pointer;
+        height: fit-content;
     }
 }
 
 .active{
-    border-bottom: 1px solid $panamaBlue;
+    border-bottom: 1px solid white;
+}
+
+.nav__list:hover > .nav__item:hover > .nav__link:hover > .nav__link__hover{
+    opacity: 1;
+    width: 100%;
 }
 
 .nav{
+    &__link{
+        &__hover{
+            display: inline-block;
+            position: absolute;
+            z-index: 3;
+            width: 0%;
+            opacity: 1;
+            overflow: hidden;
+            color: $panamaRed;
+            transition: all 0.3s ease;
+            transform-origin: bottom left;
+        }
+    }
     &__list{
         display: flex;
         flex-direction: row;
@@ -34,8 +70,156 @@ header{
     }
     &__item{
         &> a{
-            color: $panamaBlue;
+            display: block;
+            color: white;
             text-decoration: none;
+            position: relative;
+            &:hover{
+                &:before{
+                    transform: scaleX(1);
+                    transform-origin: bottom right;
+                }
+            }
+            &:before{
+                content: " ";
+                display: block;
+                position: absolute;
+                top: 0; right: 0; bottom: 0; left: 0;
+                inset: 0 0 0 0;
+                background: hsl(0, 0%, 100%);
+                z-index: -1;
+                transition: transform .3s ease;
+                transform: scaleX(0);
+                transform-origin: bottom right;
+            }
+            
         }
     }
+}
+
+@media (width <= 1100px) {
+
+    header{
+        height: 4rem;
+        justify-content: space-between;
+        background-color: rgba(246, 238, 232, 0.8);
+        background: none;  
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        padding: 0;
+        left: 0;
+        transform: translateX(0%);
+    }
+    .active{
+        color: $panamaRed;
+    }
+
+    .nav__link{
+        position: relative;
+        font-size: clamp(3rem, 7vw, 7.5rem);
+        border: none;
+        &:hover{
+            border: none;
+            background-color: transparent;
+        }
+        &__hover{
+            display: inline-block;
+            position: absolute;
+            font-size: clamp(3rem, 7vw, 7.5rem);
+            z-index: 4;
+            width: 0%;
+            opacity: 1;
+            overflow: hidden;
+            color: white;
+            border-bottom: 2px solid white;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+    .nav__list{
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        inset: 0 0 0 0;
+        flex-direction: column;
+        background-color: rgb(15, 15, 15);
+        padding: 50px;
+        transform: translateX(100%);
+        transition: transform 250ms ease-in-out;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        gap: 100px;
+        &__background{
+            display: block;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-position: center 30%;
+            opacity: 0.8;
+            z-index: -1;
+            background-size: 210vmin;
+            background-repeat: no-repeat;
+            background-image: url('../../../../assets/background/nav-menu/miguel-bruna-AgkMjv3F-H0-unsplash.jpg');
+            filter: blur(.2rem);
+            transition: all 800ms ease;
+        }
+    }
+    .nav__list[data-visible="true"]{
+        transform: translateX(0%);
+    }
+    .mobileNavToggle{
+        position: fixed;
+        border: 0;
+        width: 24px;
+        height: 24px;
+        top: 1.2rem;
+        right: 2rem;
+        z-index: 4;
+        display: block;
+        cursor: pointer;
+        background: transparent;
+    }
+    .mobileNavToggle[aria-expanded="true"]{
+        transform: rotate(45deg);
+        transition: all 0.3s ease-in-out;
+        transition-delay: 0.6s;
+        & .toggle__line:nth-child(2){
+            width: 0px;
+        }
+        & .toggle__line:nth-child(1), & .line:nth-child(3){
+            -webkit-transition-delay: 0.3s;
+            -o-transition-delay: 0.3s;
+            transition-delay: 0.3s;
+        }
+        & .toggle__line:nth-child(1){
+            -webkit-transform: translateY(4px);
+            -ms-transform: translateY(4px);
+            -o-transform: translateY(4px);
+            transform: translateY(4px);
+            background-color: $panamaBlue;
+        }
+        & .toggle__line:nth-child(3){
+            -webkit-transform: translateY(-12px) rotate(90deg);
+            -ms-transform: translateY(-12px) rotate(90deg);
+            -o-transform: translateY(-12px) rotate(90deg);
+            transform: translateY(-12px) rotate(90deg);
+            background: $panamaRed;
+        }
+    }
+
+    .toggle__line{
+        width: 25px;
+        height: 2px;
+        display: block;
+        margin: 6px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background: white;
+    }
+    
 }

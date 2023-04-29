@@ -2,7 +2,7 @@
     <div ngClass="logo__container">
         <img src="../../../../assets/logo/logo.png" alt="Logo du site, drapeau stylisé du Panama" (click)="toHome()">
     </div>
-    <button id="toggleButton" ngClass="mobileNavToggle" aria-controls="primary-navigation" aria-expanded="false" data-visible="false">
+    <button id="toggleButton" (click)="toggleNav()"  ngClass="mobileNavToggle" aria-controls="primary-navigation" aria-expanded="false" data-visible="false">
         <span class="toggle__line"></span>
         <span class="toggle__line"></span>
         <span class="toggle__line"></span>
@@ -10,14 +10,16 @@
     <nav ngClass="navBar nav" id="navBar">
         <ul id="primary-navigation" data-visible="false" ngClass="nav__list">
             <li ngClass="nav__item" >
-                <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ngClass="nav__link">Accueil</a>             
+                <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ngClass="nav__link"><span ngClass="nav__link__hover" aria-hidden="true">Accueil</span>Accueil</a>             
             </li>
             <li ngClass="nav__item">
-                <a routerLink="/tourisme" routerLinkActive="active" ngClass="nav__link">Tourisme</a> 
+                <a routerLink="/tourisme" routerLinkActive="active" ngClass="nav__link"><span ngClass="nav__link__hover" aria-hidden="true">Tourisme</span>Tourisme</a> 
             </li>
             <li ngClass="nav__item">
-                <a routerLink="/informations" routerLinkActive="active" ngClass="nav__link">Informations</a> 
+                <a routerLink="/informations" routerLinkActive="active" ngClass="nav__link"><span ngClass="nav__link__hover" aria-hidden="true">Informations</span>Informations</a> 
             </li>
+            <div ngClass="nav__list__background" id="background__menu"></div>
         </ul>
     </nav>
+   
 </header>
