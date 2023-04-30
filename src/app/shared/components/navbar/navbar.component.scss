@@ -110,6 +110,9 @@ header{
         padding: 0;
         left: 0;
         transform: translateX(0%);
+        &:before{
+            content: none;
+        }
     }
     .active{
         color: $panamaRed;
@@ -219,7 +222,7 @@ header{
         -webkit-transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
-        background: white;
+        background: $panamaBlue;
     }
     
 }
