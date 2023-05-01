@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
     const items = Array.from(document.querySelectorAll(".nav__item"));
     let previousIndex = 0;
     let lastChangeTime = 0;
-    const cooldownTime = 200; // Temps de cooldown en millisecondes
+    const cooldownTime = 100; // Temps de cooldown en millisecondes
   
     items.forEach((item, index) => {
       item.addEventListener("mouseover", () => {

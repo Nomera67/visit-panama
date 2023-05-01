@@ -19,8 +19,8 @@ header{
         top: 0;
         left: 0;
         z-index: -1;
-        background: rgb(200,16,46);
-        background: linear-gradient(90deg, rgba(0,94,184,.6) 30%, rgba(200,16,46,.6) 100%);
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(.2rem);
     }
 }
 
@@ -40,7 +40,7 @@ header{
 }
 
 .active{
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid $panamaBlue;
 }
 
 .nav__list:hover > .nav__item:hover > .nav__link:hover > .nav__link__hover{
@@ -57,6 +57,8 @@ header{
             width: 0%;
             opacity: 1;
             overflow: hidden;
+            font-weight: bolder;
+            border-bottom: 1px solid $panamaRed;
             color: $panamaRed;
             transition: all 0.3s ease;
             transform-origin: bottom left;
@@ -71,7 +73,8 @@ header{
     &__item{
         &> a{
             display: block;
-            color: white;
+            color: $panamaBlue;
+            font-weight: bold;
             text-decoration: none;
             position: relative;
             &:hover{
@@ -100,10 +103,10 @@ header{
 @media (width <= 1100px) {
 
     header{
-        height: 4rem;
+        height: 4.5rem;
         justify-content: space-between;
-        background-color: rgba(246, 238, 232, 0.8);
-        background: none;  
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(.3rem);
         width: 100%;
         margin: 0;
         border-radius: 0;
@@ -125,7 +128,7 @@ header{
         &:hover{
             border: none;
             background-color: transparent;
-            transition: all 0.8s ease;
+            transition: all 0.5s ease;
         }
         &__hover{
             display: inline-block;
@@ -136,8 +139,8 @@ header{
             opacity: 1;
             overflow: hidden;
             color: white;
-            border-bottom: 2px solid $panamaBlue;
-            transition: all 0.8s ease;
+            border-bottom: 2px solid white;
+            transition: all 0.5s ease;
         }
     }
 
@@ -167,14 +170,15 @@ header{
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
-            transition: all 800ms ease;
         }
     }
     .nav__list[data-visible="true"]{
         transform: translateX(0%);
     }
     .nav__item{
+        width: fit-content;
         & > a{
+            color: white;
             &:before{
                 opacity: 1;
                 background: $panamaRed;
@@ -231,6 +235,9 @@ header{
         -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
         background: $panamaBlue;
+        &:nth-child(2){
+            background: $panamaRed;
+        }
     }
 
     #background__menu[data-active-index="0"]{
@@ -251,10 +258,10 @@ header{
     
     .blackout {
         filter: opacity(0);
-        transition: all 0.3s ease;
+        transition: all 0.2s linear;
     }
     .illumination{
         filter: opacity(1);
-        transition: all 0.5s ease;
+        transition: all 0.3s ease;
     }
 }
