@@ -1,0 +1,44 @@
+@use '../../../../styles.scss' as *;
+
+@keyframes hideReveal {
+    from{
+        opacity: 1;
+    }
+    99%{
+        opacity: 0;
+    }
+    100%{
+        z-index: -1;
+        opacity: 0;
+    }
+}
+
+.home{
+    &__container{
+        display: grid;
+        place-items: center;
+        height: 50vh;
+        width: 100vw;
+        background-color: rgb(255, 255, 255);
+
+    }
+    &__hide{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 4;
+        background: #000000;
+        opacity: 1;
+        animation: hideReveal 2s ease-in-out both;
+    }
+}
+
+@media (width <= 1100px){
+    .home{
+        &__hide{
+            z-index: 2;
+        }
+    }
+}

@@ -1,1 +1,139 @@
-/* You can add global styles to this file, and also import other style files */
+//Reset------------------------------------------------------------------------
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+//Fonts------------------------------------------------------------------------
+@font-face {
+    font-family: 'Poppins';
+    src: url('./assets/fonts/Poppins-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Pinyon Script';
+    src: url('./assets/fonts/PinyonScript-Regular.ttf') format('truetype');
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+//Colors
+
+$panamaBlue: #005EB8;
+$panamaRed: #C8102E;
+
+//keyframes--------------------------------------------------------------------
+//Appearance of Panama Inscription around the CTA
+@keyframes panamaAppear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+//Rotation of Panama Inscription around the CTA
+@keyframes panamaRotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+//Appearance of ::before of CTA with the background included 
+@keyframes ctaBeforeAppear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }   
+}
+
+//Appearance of span in the CTA 
+@keyframes spanAppear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+//Appearance of CTA itself FINALLY
+@keyframes ctaAppear {
+    from{
+        transform: scale(0) translateX(-100%);
+        opacity: 0;
+        color: rgba(250, 250, 250, 0);
+    }
+    to{
+        transform: scale(1) translateX(-50%);
+        opacity: 1;
+        color: white;
+    } 
+}
+
+//Background moving of ::before CTA
+@keyframes backgroundDefilement {
+    from{
+        background-position: 0% 50%;
+    }
+    to{
+        background-position: 100% 50%;
+    }
+}
+
+//CTA desappearance while transition to other page
+@keyframes ctaDesappear {
+    0%{
+        opacity: 1;
+    }
+    75%{
+        background-color: #0003a0;
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+//Panama inscription desappearance
+@keyframes panamaDesappear {
+    from{
+        opacity: 1;
+        transform: scale(1);
+    }
+    to{
+        opacity: 0;
+        transform: scale(.3);
+    }   
+}
+
+//Appearance of landing__disappear to make smooth transition to other page
+@keyframes disappearActive {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+//Desappearance of container of landing page to move to other page
+@keyframes containerDesappear {
+    from{
+        filter: blur(0);
+    }
+    90%{
+        filter: blur(.4rem);
+    }
+    100%{
+        filter: blur(0rem);
+    }
+}

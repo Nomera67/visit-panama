@@ -1,0 +1,88 @@
+@use '../../../../styles.scss' as *;
+.landing{
+    &__disappear{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 1;
+        background: #000000;
+        opacity: 0;
+    }
+    &__container{
+        height: 100vh;
+        width: 100vw;
+        background: url('../../../../assets/background/landing-page/aljoscha-laschgari-Wb_UdXBlvQA-unsplash.jpg');
+        background-position: center;
+        background-size: cover;
+        display: grid;
+        place-items: center;
+        z-index: -1;
+    }
+    &__textzone{
+        position: relative;
+        overflow: visible;
+        display: grid;
+        place-items: center;
+        & > svg{
+            overflow: visible;
+            animation: panamaRotate 15s linear infinite, panamaAppear 2s 0.5s ease-in-out backwards;
+        }
+    }
+    &__CTA{
+        position: absolute;
+        top: 13%;
+        left: 50%;
+        transform:  scale(1) translateX(-50%);
+        width: 150px;
+        height: 150px;
+        border: 2px solid transparent;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold; 
+        background: transparent;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 4;
+        transition: all 1.5s ease-in-out;
+        // animation: ctaAppear 2.5s 2s ease backwards;
+        overflow: hidden;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation:  ctaBeforeAppear 2s 2s ease backwards,backgroundDefilement 15s alternate infinite;
+            background: url('../../../../assets/background/landing-page/wave.svg') transparent;
+            background-size: 1100%;
+            background-position: 50% 0%;
+            filter: blur(0.5rem);
+        }
+        &>span{
+            mix-blend-mode: difference;
+            z-index: 5;
+            backdrop-filter: 2rem;
+            animation: spanAppear 1s 2.75s ease backwards;
+        }
+        &:hover{
+            background-size: 2000%;
+            transform: scale(1.2) translate(-42%);
+        }
+    }
+}
+
+.hideCTA{
+    animation: ctaDesappear 2s ease-in-out forwards;
+}
+.hideSvg{
+    animation: panamaDesappear 2s 1.5s ease forwards;
+}
+.hideContainer{
+    animation: containerDesappear 3s 3.5s ease forwards;
+}
+.disappearActive{
+    animation: disappearActive 2s 4.5s ease forwards;
+}
