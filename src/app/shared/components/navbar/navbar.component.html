@@ -8,7 +8,7 @@
         <span class="toggle__line"></span>
     </button>
     <nav ngClass="navBar nav" id="navBar">
-        <ul id="primary-navigation" data-visible="false" ngClass="nav__list">
+        <ul id="primary-navigation" data-visible="false" ngClass="nav__list" (mouseenter)="backgroundChange()">
             <li ngClass="nav__item" >
                 <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ngClass="nav__link"><span ngClass="nav__link__hover" aria-hidden="true">Accueil</span>Accueil</a>             
             </li>
@@ -18,7 +18,7 @@
             <li ngClass="nav__item">
                 <a routerLink="/informations" routerLinkActive="active" ngClass="nav__link"><span ngClass="nav__link__hover" aria-hidden="true">Informations</span>Informations</a> 
             </li>
-            <div ngClass="nav__list__background" id="background__menu"></div>
+            <div ngClass="nav__list__background" id="background__menu" data-active-index="0"></div>
         </ul>
     </nav>
    

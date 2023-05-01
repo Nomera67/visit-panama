@@ -120,23 +120,24 @@ header{
 
     .nav__link{
         position: relative;
-        font-size: clamp(3rem, 7vw, 7.5rem);
+        font-size: clamp(2.5rem, 7vw, 7.5rem);
         border: none;
         &:hover{
             border: none;
             background-color: transparent;
+            transition: all 0.8s ease;
         }
         &__hover{
             display: inline-block;
             position: absolute;
-            font-size: clamp(3rem, 7vw, 7.5rem);
+            font-size: clamp(2.5rem, 7vw, 7.5rem);
             z-index: 4;
             width: 0%;
             opacity: 1;
             overflow: hidden;
             color: white;
-            border-bottom: 2px solid white;
-            transition: all 0.3s ease-in-out;
+            border-bottom: 2px solid $panamaBlue;
+            transition: all 0.8s ease;
         }
     }
 
@@ -161,18 +162,25 @@ header{
             width: 100%;
             left: 0;
             top: 0;
-            background-position: center 30%;
             opacity: 0.8;
             z-index: -1;
-            background-size: 210vmin;
             background-repeat: no-repeat;
-            background-image: url('../../../../assets/background/nav-menu/miguel-bruna-AgkMjv3F-H0-unsplash.jpg');
-            filter: blur(.2rem);
+            background-position: center;
+            background-size: cover;
             transition: all 800ms ease;
         }
     }
     .nav__list[data-visible="true"]{
         transform: translateX(0%);
+    }
+    .nav__item{
+        & > a{
+            &:before{
+                opacity: 1;
+                background: $panamaRed;
+            }
+        }
+        
     }
     .mobileNavToggle{
         position: fixed;
@@ -224,5 +232,29 @@ header{
         transition: all 0.3s ease-in-out;
         background: $panamaBlue;
     }
+
+    #background__menu[data-active-index="0"]{
+        background-image: url('../../../../assets/background/nav-menu/miguel-bruna-AgkMjv3F-H0-unsplash.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    #background__menu[data-active-index="1"]{
+        background-image: url('../../../../assets/background/nav-menu/pexels-harnett-a-solis-14027205.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    #background__menu[data-active-index="2"]{
+        background-image: url('../../../../assets/background/nav-menu/pexels-neron-photos-7669914.jpg');
+        background-size: cover;
+        background-position: center;
+    }
     
+    .blackout {
+        filter: opacity(0);
+        transition: all 0.3s ease;
+    }
+    .illumination{
+        filter: opacity(1);
+        transition: all 0.5s ease;
+    }
 }
