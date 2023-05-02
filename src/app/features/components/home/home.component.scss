@@ -13,12 +13,46 @@
     }
 }
 
+// <main ngClass="home__main">
+//     <div ngClass="home__main__mask">
+//         <h1>Panama</h1>
+//     </div>
+// </main>
+
+
+
 .home{
+    &__title{
+        padding: 40px 0;
+        text-align: center;
+        font-size: clamp(3rem, 10vw + 0.5rem, 5rem);
+        font-size: 900;
+        text-transform: uppercase;
+        position: fixed;
+        width: 100%;
+    }
+    &__main{
+        background-image: url('../../../../assets/background/homepage/hero-parallax/pexels-karina-castillo-7204647.jpg');
+        background-position: top;
+        background-size: cover;
+        height: 92vh;
+        position: relative;
+        &__mask{
+            position: absolute;
+            inset: 0;
+            -webkit-mask: url("../../../../assets/background/homepage/hero-parallax/sky.png");
+            -webkit-mask-position: top;
+            -webkit-mask-size: cover;
+            display: flex;
+
+        }
+    }
     &__container{
+        margin: auto;
         display: grid;
         place-items: center;
         height: 50vh;
-        width: 100vw;
+        width: 70%;
         background-color: rgb(255, 255, 255);
 
     }
