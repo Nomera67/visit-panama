@@ -21,13 +21,13 @@
         font-size: 900;
         position: fixed;
         width: 100%;
-        transform: translateY(50%);
+        transform: translateY(-20%);
         & > h1{
-            font-size: clamp(3rem, 10vw, 9rem);
+            font-size: clamp(3.5rem, 10vw, 9rem);
             font-style: italic;
         }
         & > p{
-            font-size: clamp(1.5rem, 5vw, 4.5rem);
+            font-size: clamp(2rem, 5vw, 4.5rem);
             font-family: 'Dancingscript';
             font-weight: bold;
         }
@@ -36,9 +36,11 @@
         background-image: url('../../../../assets/background/homepage/hero-parallax/ricardo-morales-yoAhMqlkGM0-unsplash\ \(1\).jpg');
         background-position: top;
         background-size: cover;
-        height: 92vh;
+        height: 95vh;
         position: relative;
         &__mask{
+            display: grid;
+            place-items: center;
             position: absolute;
             inset: 0;
             -webkit-mask: url("../../../../assets/background/homepage/hero-parallax/sky-forest.png");
@@ -47,15 +49,6 @@
             display: flex;
 
         }
-    }
-    &__container{
-        margin: auto;
-        display: grid;
-        place-items: center;
-        height: 50vh;
-        width: 70%;
-        background-color: rgb(255, 255, 255);
-
     }
 }
 
