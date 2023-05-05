@@ -32,7 +32,9 @@
 
 .introduction__geography, .introduction__heritage, .introduction__biodiversity{
     display: flex;
-        gap: 10px;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 1s ease;
         &__text{
             display: flex;
             flex-direction: column;
@@ -51,4 +53,17 @@
                 max-width: 100%;
             }
         }
+}
+
+.is-visible{
+    opacity: 1;
+}
+
+
+
+@media (width <= 1000px){
+    .introduction__geography, .introduction__heritage, .introduction__biodiversity{
+        flex-direction: column;
+    }
+
 }
