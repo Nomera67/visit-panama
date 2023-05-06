@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
+import { NavbarheightService } from 'src/app/services/navbarheight.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,19 @@ import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
+    
   }
+  
+
+
   titlePos: number = 0;
   subTitlePos: number = 0;
+  opacity: number = 1
 
-  constructor(private elementRef: ElementRef) {}
+
+  constructor(private elementRef: ElementRef, private navbarService: NavbarheightService) {}
+  
+
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
@@ -29,4 +38,22 @@ export class HomeComponent implements OnInit {
     homeSubtitle.style.transform = `translateY(${this.subTitlePos}px)`;
   }
 
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: any) {
+    const scrollPosition = window.pageYOffset;
+    const maxScroll = document.body.clientHeight - window.innerHeight;
+    const opacity = 1 - (scrollPosition / maxScroll) * 6;
+    this.opacity = opacity < 0 ? 0 : opacity;
+  }
+
+  public scrollToIntroduction(): void {
+    const introduction = document.getElementById('introduction__beginning');
+    const navbarHeight = this.navbarService.navbarHeight;
+    
+    if (introduction) {
+      const introductionCoordinate = introduction.getBoundingClientRect().top + window.scrollY;
+      const terminalCoordinate = introductionCoordinate - navbarHeight;
+      window.scrollTo({ top: terminalCoordinate, behavior: 'smooth' });
+    }
+  }
 }

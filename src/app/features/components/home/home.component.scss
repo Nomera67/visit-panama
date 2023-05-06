@@ -13,8 +13,34 @@
     }
 }
 
+@keyframes bounceArrow {
+    0%{
+        transform: translateY(10%);
+    }
+	50%{
+        transform: translateY(0%);
+    }
+	100%{
+        transform: translateY(10%);
+    }
+}
+
 
 .home{
+    &__scroll{
+        display: block;
+        width: 75px;
+        animation: bounceArrow 1s linear infinite;
+    }
+    &__scrollbox{
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, .5);
+        border-radius: 50%;
+    }
     &__title{
         padding: 40px 0;
         text-align: center;
@@ -38,7 +64,7 @@
         background-image: url('../../../../assets/background/homepage/hero-parallax/ricardo-morales-yoAhMqlkGM0-unsplash\ \(1\).jpg');
         background-position: top;
         background-size: cover;
-        height: 95vh;
+        height: 100vh;
         position: relative;
         &__mask{
             display: grid;
