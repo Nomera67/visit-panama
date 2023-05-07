@@ -1,5 +1,16 @@
 @use '../../../../styles.scss' as *;
 
+@keyframes headerAppearance{
+    0%{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
 header{
     width: 100%;
     height: 4.5rem;
@@ -11,6 +22,7 @@ header{
     background-color: transparent;
     position: fixed;
     z-index: 3;
+    animation: headerAppearance 2s ease backwards;
     &:before{
         content: '';
         width: 100%;
