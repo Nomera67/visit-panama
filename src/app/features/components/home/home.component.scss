@@ -1,37 +1,81 @@
 @use '../../../../styles.scss' as *;
 
-@keyframes hideReveal {
-    from{
-        opacity: 1;
+@keyframes bounceArrow {
+    0%{
+        transform: translateY(10%);
     }
-    99%{
+	50%{
+        transform: translateY(0%);
+    }
+	100%{
+        transform: translateY(10%);
+    }
+}
+
+@keyframes mainAppear {
+    0%{
         opacity: 0;
     }
     100%{
-        z-index: -1;
-        opacity: 0;
+        opacity: 1;
     }
 }
 
 .home{
-    &__container{
-        display: grid;
-        place-items: center;
-        height: 50vh;
-        width: 100vw;
-        background-color: rgb(255, 255, 255);
-
+    &__scroll{
+        display: block;
+        width: 75px;
+        animation: bounceArrow 1s linear infinite;
     }
-    &__hide{
+    &__scrollbox{
         position: absolute;
-        top: 0;
-        left: 0;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, .5);
+        border-radius: 50%;
+    }
+    &__title{
+        padding: 40px 0;
+        text-align: center;
+        font-size: 900;
+        position: fixed;
+        width: 100%;
+        transform: translateY(-20%);
+        & > h1{
+            font-size: clamp(3.5rem, 10vw, 9rem);
+            text-shadow: 5px 5px 5px #fff;
+            font-style: italic;
+        }
+        & > p{
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            text-shadow: 3px 3px 3px #fff;
+            font-family: 'Dancingscript';
+            font-weight: bold;
+        }
+    }
+    &__main{
+        background-image: url('../../../../assets/background/homepage/hero-parallax/ricardo-morales-yoAhMqlkGM0-unsplash.jpg');
+        background-position: top;
+        background-size: cover;
         height: 100vh;
-        width: 100vw;
-        z-index: 4;
-        background: #000000;
-        opacity: 1;
-        animation: hideReveal 2s ease-in-out both;
+        position: relative;
+        animation: mainAppear 2s ease backwards;
+        &__mask{
+            display: grid;
+            place-items: center;
+            position: absolute;
+            inset: 0;
+            -webkit-mask: url("../../../../assets/background/homepage/hero-parallax/sky-forest.png");
+            -webkit-mask-position: top;
+            -webkit-mask-size: cover;
+            display: flex;
+
+        }
+    }
+    &__introduction{
+        animation: mainAppear 2s ease backwards;
     }
 }
 

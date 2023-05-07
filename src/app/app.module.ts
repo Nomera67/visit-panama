@@ -4,17 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { NavbarheightService } from './services/navbarheight.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  exports: [
+  ],
+  providers: [
+    NavbarheightService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavbarheightService } from 'src/app/services/navbarheight.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +9,10 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public _router: Router) { }
+  constructor(public _router: Router, private navbarService: NavbarheightService) { }
 
   ngOnInit(): void {
+    this.navbarService.navbarHeight = document.getElementById('headerMenu')?.clientHeight || 0;
   }
 
   toggleNav(){
