@@ -13,7 +13,8 @@ export class IntroductionComponent implements OnInit {
     const geography = document.querySelector('#geography');
     const heritage = document.querySelector('#heritage');
     const biodiversity = document.querySelector('#biodiversity');
-    if (geography && heritage && biodiversity) {
+    const introduction = document.querySelector('#introduction__hook');
+    if (geography && heritage && biodiversity && introduction) {
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -27,6 +28,7 @@ export class IntroductionComponent implements OnInit {
           }
         });
       });
+      observer.observe(introduction);
       observer.observe(geography);
       observer.observe(heritage);
       observer.observe(biodiversity);

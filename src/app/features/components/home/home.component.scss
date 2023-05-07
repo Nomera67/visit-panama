@@ -1,18 +1,5 @@
 @use '../../../../styles.scss' as *;
 
-@keyframes hideReveal {
-    from{
-        opacity: 1;
-    }
-    99%{
-        opacity: 0;
-    }
-    100%{
-        z-index: -1;
-        opacity: 0;
-    }
-}
-
 @keyframes bounceArrow {
     0%{
         transform: translateY(10%);
@@ -25,6 +12,14 @@
     }
 }
 
+@keyframes mainAppear {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 
 .home{
     &__scroll{
@@ -61,11 +56,12 @@
         }
     }
     &__main{
-        background-image: url('../../../../assets/background/homepage/hero-parallax/ricardo-morales-yoAhMqlkGM0-unsplash\ \(1\).jpg');
+        background-image: url('../../../../assets/background/homepage/hero-parallax/ricardo-morales-yoAhMqlkGM0-unsplash.jpg');
         background-position: top;
         background-size: cover;
         height: 100vh;
         position: relative;
+        animation: mainAppear 2s ease backwards;
         &__mask{
             display: grid;
             place-items: center;
@@ -77,6 +73,9 @@
             display: flex;
 
         }
+    }
+    &__introduction{
+        animation: mainAppear 2s ease backwards;
     }
 }
 
