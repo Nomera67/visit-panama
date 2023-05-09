@@ -1,0 +1,15 @@
+@use '../styles.scss' as *;
+
+.mouse{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 208, 0, 0.8);
+    mix-blend-mode: exclusion;
+    pointer-events: none;
+}

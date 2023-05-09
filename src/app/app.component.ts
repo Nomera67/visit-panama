@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -9,7 +9,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'visit-panama';
   
   isLandingPage = false;
   private routerSub!: Subscription;
@@ -34,4 +33,20 @@ export class AppComponent implements OnInit{
       this.routerSub.unsubscribe();
     }
   }
+
+  cursorX = 0;
+  cursorY = 0;
+
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent){
+    const cursor = document.getElementById('cursorChanged');
+    const cursorWidth = cursor!.clientWidth;
+    const cursorHeight = cursor!.clientHeight;
+
+    this.cursorX = event.clientX - cursorWidth / 2;
+    this.cursorY = event.clientY - cursorHeight / 2;
+    cursor!.style.left = `${this.cursorX}px`;
+    cursor!.style.top = `${this.cursorY}px`;
+  }
+
 }
