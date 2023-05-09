@@ -34,6 +34,7 @@ export class AppComponent implements OnInit{
     }
   }
 
+  
   cursorX = 0;
   cursorY = 0;
 
