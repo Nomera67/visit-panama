@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
   isLandingPage = false;
   private routerSub!: Subscription;
 
-  constructor(private _router: Router){
+  constructor( private _router: Router ){
   }
 
   ngOnInit(){
@@ -34,9 +34,10 @@ export class AppComponent implements OnInit{
     }
   }
 
-  
+
   cursorX = 0;
   cursorY = 0;
+   
 
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(event: MouseEvent){
