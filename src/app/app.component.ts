@@ -45,8 +45,15 @@ export class AppComponent implements OnInit{
 
     this.cursorX = event.clientX - cursorWidth / 2;
     this.cursorY = event.clientY - cursorHeight / 2;
-    cursor!.style.left = `${this.cursorX}px`;
-    cursor!.style.top = `${this.cursorY}px`;
+
+    const keyframes = {
+      transform: `translate(${this.cursorX}px, ${this.cursorY}px)`
+    }
+
+    cursor?.animate(keyframes, {
+      duration: 800,
+      fill: 'forwards'
+    })
   }
 
 }
