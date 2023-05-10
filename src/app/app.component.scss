@@ -14,3 +14,8 @@
     pointer-events: none;   
 }
 
+@media (width < 1000px) {
+    .mouse{
+        display: none;
+    }    
+}
