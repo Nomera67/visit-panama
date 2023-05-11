@@ -38,6 +38,8 @@ export class AppComponent implements OnInit{
   cursorX = 0;
   cursorY = 0;
   activeElement: HTMLElement | null = null;
+
+  timeoutId: ReturnType<typeof setTimeout> | null = null;
    
 
   @HostListener('document:mousemove', ['$event'])
@@ -49,6 +51,23 @@ export class AppComponent implements OnInit{
     this.cursorX = event.clientX - cursorWidth / 2;
     this.cursorY = event.clientY - cursorHeight / 2;
 
+    //We start the timeout
+    if (this.timeoutId !== null) {
+      clearTimeout(this.timeoutId);
+    }
+
+    //if cursor don't move in 800ms then translate it to be more visible and not behind cursor
+    this.timeoutId = setTimeout(() => {
+      const cursor = document.getElementById('cursorChanged');
+      const keyframes = {
+        transform: `translate(${this.cursorX + 20}px, ${this.cursorY + 30}px)`
+      };
+      cursor?.animate(keyframes, {
+        duration: 400,
+        fill: 'forwards'
+      });
+    }, 800);
+
     const keyframes = {
       transform: `translate(${this.cursorX + 10}px, ${this.cursorY + 10}px)`
     }
@@ -59,6 +78,7 @@ export class AppComponent implements OnInit{
     })
   }
 
+  //Search of ID or tag of the hover element and add it to its attribute to begin the animation
   @HostListener('mouseover', ['$event.target'])
   onHover(target: HTMLElement) {
     console.log(target.tagName)
