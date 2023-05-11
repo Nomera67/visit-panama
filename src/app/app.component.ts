@@ -83,17 +83,17 @@ export class AppComponent implements OnInit{
   onHover(target: HTMLElement) {
     console.log(target.tagName)
     const cursor = document.getElementById('cursorChanged');
-    if (target.id == 'goHome'){
+    if (target.classList.contains('goHome')){
       cursor?.setAttribute('data-active', 'home');
-    } else if (target.id == 'goTourism'){
+    } else if (target.classList.contains('goTourism')){
       cursor?.setAttribute('data-active', 'tourism');
-    } else if (target.id == 'goInformations'){
+    } else if (target.classList.contains('goInformations')){
       cursor?.setAttribute('data-active', 'informations');
-    } else if ((target as HTMLElement).tagName == 'A') {
+    } else if (target.classList.contains('linkTo')) {
       cursor?.setAttribute('data-active', 'link');
-    } else if ((target as HTMLElement).tagName == 'BUTTON') {
+    } else if (target.classList.contains('buttonTo')) {
       cursor?.setAttribute('data-active', 'button');
-    } else if ((target as HTMLElement).tagName !== 'A' || 'SPAN' || 'BUTTON' || 'IMG') {
+    } else {
       cursor?.setAttribute('data-active', `${target.tagName}`);
     }    
   }

@@ -1,8 +1,8 @@
 <header id="headerMenu" aria-expanded="true" data-visible="true">
     <div ngClass="logo__container">
-        <img src="../../../../assets/logo/logo.png" alt="Logo du site, drapeau stylisé du Panama" (click)="toHome()" id="goHome">
+        <img src="../../../../assets/logo/logo.png" alt="Logo du site, drapeau stylisé du Panama" ngClass="goHome" (click)="toHome()">
     </div>
-    <button id="toggleButton" (click)="toggleNav()"  ngClass="mobileNavToggle" aria-controls="primary-navigation" aria-expanded="false" data-visible="false">
+    <button id="toggleButton" (click)="toggleNav()"  ngClass="mobileNavToggle buttonTo" aria-controls="primary-navigation" aria-expanded="false" data-visible="false">
         <span class="toggle__line"></span>
         <span class="toggle__line"></span>
         <span class="toggle__line"></span>
@@ -10,13 +10,13 @@
     <nav ngClass="navBar nav" id="navBar">
         <ul id="primary-navigation" data-visible="false" ngClass="nav__list" (mouseenter)="backgroundChange()">
             <li ngClass="nav__item">
-                <a routerLink="/home" id="goHome" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ngClass="nav__link"><span ngClass="nav__link__hover" id="goHome" aria-hidden="true">Accueil</span>Accueil</a>             
+                <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ngClass="nav__link goHome"><span ngClass="nav__link__hover goHome" id="goHome" aria-hidden="true">Accueil</span>Accueil</a>             
             </li>
             <li ngClass="nav__item">
-                <a routerLink="/tourisme" id="goTourism" routerLinkActive="active" ngClass="nav__link"><span ngClass="nav__link__hover" aria-hidden="true" id="goTourism">Tourisme</span>Tourisme</a> 
+                <a routerLink="/tourisme" routerLinkActive="active" ngClass="nav__link goTourism"><span ngClass="nav__link__hover goTourism" aria-hidden="true">Tourisme</span>Tourisme</a> 
             </li>
             <li ngClass="nav__item">
-                <a routerLink="/informations" id="goInformations" routerLinkActive="active" ngClass="nav__link"><span ngClass="nav__link__hover" aria-hidden="true" id="goInformations">Informations</span>Informations</a> 
+                <a routerLink="/informations" routerLinkActive="active" ngClass="nav__link goInformations"><span ngClass="nav__link__hover goInformations" aria-hidden="true" id="goInformations">Informations</span>Informations</a> 
             </li>
             <div ngClass="nav__list__background" id="background__menu" data-active-index="0"></div>
         </ul>
