@@ -1,3 +1,8 @@
 <app-navbar *ngIf="!isLandingPage"></app-navbar>
 <router-outlet></router-outlet>
-<div ngClass="mouse" id="cursorChanged"></div>
+<div ngClass="mouse" id="cursorChanged" data-active="">
+    <img ngClass="mouse__home" src="../assets/icons/home.png" alt="Retour à l'accueil">
+    <img ngClass="mouse__tourism" src="../assets/icons/airplane.png" alt="avion">
+    <img ngClass="mouse__informations" src="../assets/icons/open-book.png" alt="Livre ouvert">
+    <img ngClass="mouse__clic" src="../assets/icons/up-right-arrow.png" alt="Cliquer">
+</div>

@@ -37,6 +37,7 @@ export class AppComponent implements OnInit{
 
   cursorX = 0;
   cursorY = 0;
+  activeElement: HTMLElement | null = null;
    
 
   @HostListener('document:mousemove', ['$event'])
@@ -49,7 +50,7 @@ export class AppComponent implements OnInit{
     this.cursorY = event.clientY - cursorHeight / 2;
 
     const keyframes = {
-      transform: `translate(${this.cursorX}px, ${this.cursorY}px)`
+      transform: `translate(${this.cursorX + 10}px, ${this.cursorY + 10}px)`
     }
 
     cursor?.animate(keyframes, {
@@ -58,4 +59,22 @@ export class AppComponent implements OnInit{
     })
   }
 
+  @HostListener('mouseover', ['$event.target'])
+  onHover(target: HTMLElement) {
+    console.log(target.tagName)
+    const cursor = document.getElementById('cursorChanged');
+    if (target.id == 'goHome'){
+      cursor?.setAttribute('data-active', 'home');
+    } else if (target.id == 'goTourism'){
+      cursor?.setAttribute('data-active', 'tourism');
+    } else if (target.id == 'goInformations'){
+      cursor?.setAttribute('data-active', 'informations');
+    } else if ((target as HTMLElement).tagName == 'A') {
+      cursor?.setAttribute('data-active', 'link');
+    } else if ((target as HTMLElement).tagName == 'BUTTON') {
+      cursor?.setAttribute('data-active', 'button');
+    } else if ((target as HTMLElement).tagName !== 'A' || 'SPAN' || 'BUTTON' || 'IMG') {
+      cursor?.setAttribute('data-active', `${target.tagName}`);
+    }    
+  }
 }
