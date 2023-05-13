@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
     this.navbarService.navbarHeight = document.getElementById('headerMenu')?.clientHeight || 0;
   }
 
+
   toggleNav(){
     const primaryNav = document.getElementById("primary-navigation");
     const toggleButton = document.getElementById('toggleButton');

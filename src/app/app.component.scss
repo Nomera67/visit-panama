@@ -1,0 +1,76 @@
+@use '../styles.scss' as *;
+
+.mouse{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 208, 0, 0.8);
+    mix-blend-mode: exclusion;
+    pointer-events: none;
+    transition: all .5s ease;
+    &__clic, .mouse__home, .mouse__tourism, .mouse__informations{
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        opacity: 0;
+        transition: all .5s ease;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+.mouse[data-active="link"], .mouse[data-active="SPAN"], .mouse[data-active="button"]{
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 1);
+    mix-blend-mode: normal;
+    & .mouse__clic{
+        transform: translateX(-50%) translateY(-50%) scale(1.5);
+        opacity: 1;
+    }
+}
+
+.mouse[data-active="tourism"]{
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 1);
+    mix-blend-mode: normal;
+    & .mouse__tourism{
+        transform: translateX(-50%) translateY(-50%) scale(1.5);
+        opacity: 1;
+    }
+}
+
+.mouse[data-active="informations"]{
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 1);
+    mix-blend-mode: normal;
+    & .mouse__informations{
+        transform: translateX(-50%) translateY(-50%) scale(1.5);
+        opacity: 1;
+    }
+}
+
+.mouse[data-active="home"]{
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 1);
+    mix-blend-mode: normal;
+    & .mouse__home{
+        transform: translateX(-50%) translateY(-50%) scale(1.5);
+        opacity: 1;
+    }
+}
+
+@media (width < 1000px) {
+    .mouse{
+        display: none;
+    }    
+}
