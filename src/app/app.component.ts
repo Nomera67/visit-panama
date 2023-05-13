@@ -38,7 +38,6 @@ export class AppComponent implements OnInit{
   cursorX = 0;
   cursorY = 0;
   activeElement: HTMLElement | null = null;
-  isCursorOnLeftHalf = false;
 
   timeoutId: ReturnType<typeof setTimeout> | null = null;
    
@@ -60,13 +59,24 @@ export class AppComponent implements OnInit{
     //if cursor don't move in 800ms then translate it to be more visible and not behind cursor
     this.timeoutId = setTimeout(() => {
       const cursor = document.getElementById('cursorChanged');
-      let cursorXOffset = -20;
-      //Condition to see if cursor is in the right or the left of the screen to adapt it to be more visible
-      if (event.clientX < window.innerWidth / 2) {
+      let cursorXOffset = 0;
+      let cursorYOffset = 0;
+      //Condition to see if cursor is in the right or the left and in the upper side or lower side of the screen to adapt it to be more visible
+      if (event.clientX < window.innerWidth / 2 && event.clientY < window.innerHeight / 2) {
         cursorXOffset = 20;
+        cursorYOffset = 30;
+      } else if (event.clientX < window.innerWidth / 2 && event.clientY > window.innerHeight / 2) {
+        cursorXOffset = 20;
+        cursorYOffset = -20;
+      } else if (event.clientX > window.innerWidth /2 && event.clientY < window.innerHeight / 2) {
+        cursorXOffset = -20;
+        cursorYOffset = 30;
+      } else {
+        cursorXOffset = -20;
+        cursorYOffset = -20;
       }
       const keyframes = {
-        transform: `translate(${this.cursorX + cursorXOffset}px, ${this.cursorY + 30}px)`
+        transform: `translate(${this.cursorX + cursorXOffset}px, ${this.cursorY + cursorYOffset}px)`
       };
       cursor?.animate(keyframes, {
         duration: 400,
