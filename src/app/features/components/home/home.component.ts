@@ -9,7 +9,6 @@ import { NavbarheightService } from 'src/app/services/navbarheight.service';
 export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
-    console.log(this.titlePos)
     window.addEventListener('scroll', this.onWindowScroll.bind(this));
   }
   
@@ -17,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   titlePos: number = 0;
   subTitlePos: number = 0;
-  opacity: number = 1
+  opacity: number = 1;
 
 
   constructor(private elementRef: ElementRef, private navbarService: NavbarheightService) {}
