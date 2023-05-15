@@ -20,7 +20,7 @@
         padding: 40px 0;
         text-align: center;
         font-size: 900;
-        // position: fixed;
+        position: fixed;
         width: 100%;
         transform: translateY(-20%);
         & > h1{
@@ -30,20 +30,29 @@
         }
     }
     &__main{
-        background-image: url();
+        background-image: url('../../../../assets/background/tourism-page/cristhian-carreno-I1k4RQp1v60-unsplash.jpg');
+        background-position: top;
+        background-size: cover;
         height: 100vh;
-        border: 1px solid red;
-        // position: relative;
+        position: relative;
         animation: mainAppear 2s ease backwards;
         &__mask{
             display: grid;
             place-items: center;
             position: absolute;
             inset: 0;
-            // -webkit-mask: url();
-            // -webkit-mask-position: top;
-            // -webkit-mask-size: cover;
+            -webkit-mask: url('../../../../assets/background/tourism-page/sky.png');
+            -webkit-mask-position: top;
+            -webkit-mask-size: cover;
         }
+    }
+    &__plane{
+        display: inline-block;
+        width: 100px;
+        position: absolute;
+        top: -50%;
+        left: 35%;
+        transform: rotateY(180deg);
     }
     &__introduction{
         animation: mainAppear 2s ease backwards;

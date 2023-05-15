@@ -1,7 +1,10 @@
 <main ngClass="tourism__main" id="tourismTitleContainer">
     <div ngClass="tourism__main__mask">
-        <div class="tourism__title">
-            <h1 id="tourismTitle">Une destination touristique riche en diversité</h1>
+        <div ngClass="tourism__title">
+            <div class="tourism__plane__container">
+                <img src="../../../../assets/background/tourism-page/pngwing.com.png" alt="" ngClass="tourism__plane">
+            </div>
+            <h1 id="tourismTitle">Un paradis touristique</h1>
         </div>
     </div>
     <div ngClass="tourism__scrollbox" [style.opacity]="opacity" (click)="scrollToInvitation()">

@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 
 import { NavbarheightService } from 'src/app/services/navbarheight.service';
 
@@ -11,11 +11,36 @@ export class TourismeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    window.addEventListener('scroll', this.onWindowScroll.bind(this));
   }
 
+  titlePos: number = 0;
+  airplanePos: number = 0;
+  airplaneAlt: number = 0;
   opacity: number = 1;
 
-  constructor(private navbarService: NavbarheightService){}
+  constructor(private navbarService: NavbarheightService, private elementRef: ElementRef){}
+
+  onWindowScroll() {
+
+    const tourismTitle = this.elementRef.nativeElement.querySelector('.tourism__title > h1');
+    const airplane = this.elementRef.nativeElement.querySelector('.tourism__plane');
+    const tourismContainer = this.elementRef.nativeElement.querySelector('.tourism__main');
+    
+    console.log(tourismTitle);
+    console.log(airplane);
+    console.log(tourismContainer);
+    // Calculer la nouvelle position verticale du titre et de l'avion avec son altitude
+    this.titlePos = Math.round((tourismContainer.getBoundingClientRect().top * -1) / 2);
+    this.airplanePos = Math.round((tourismContainer.getBoundingClientRect().top * -1) * 2);
+    this.airplaneAlt = Math.round(tourismContainer.getBoundingClientRect().top * -1);
+
+    console.log(this.titlePos);
+    console.log(this.airplanePos);
+    // Appliquer les nouvelles positions
+    tourismTitle.style.transform = `translateY(${this.titlePos}px)`;
+    airplane.style.transform = `translateX(${this.airplanePos}px) translateY(-${this.airplaneAlt}px) rotateY(180deg)`;
+  }
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
