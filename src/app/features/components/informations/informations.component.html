@@ -1,1 +1,13 @@
-<p>informations works!</p>
+<main ngClass="information__main" id="informationTitleContainer">
+    <div ngClass="information__main__mask">
+        <div ngClass="information__title">
+            <h1 id="informationTitle">
+                Comment voyager au Panama ?
+            </h1>
+        </div>
+    </div>
+    <div ngClass="information__scrollbox" [style.opacity]="opacity" (click)="scrollToInvitation()">
+        <img src="../../../../assets/icons/down-arrow.png" ngClass="information__scroll buttonTo" alt="scroll down icon">
+    </div>
+</main>
+<app-utility></app-utility>

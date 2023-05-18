@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { InformationsRoutingModule } from './informations-routing.module';
 import { InformationsComponent } from './informations.component';
+import { UtilityComponent } from './utility/utility.component';
 
 
 @NgModule({
   declarations: [
-    InformationsComponent
+    InformationsComponent,
+    UtilityComponent
   ],
   imports: [
     CommonModule,
