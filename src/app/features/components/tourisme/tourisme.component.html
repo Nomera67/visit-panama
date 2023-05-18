@@ -1,1 +1,15 @@
-<p>tourisme works!</p>
+<main ngClass="tourism__main" id="tourismTitleContainer">
+    <div ngClass="tourism__main__mask">
+        <div ngClass="tourism__title">
+            <div class="tourism__plane__container">
+                <img src="../../../../assets/background/tourism-page/pngwing.com.png" alt="" ngClass="tourism__plane">
+            </div>
+            <h1 id="tourismTitle">Un paradis touristique</h1>
+        </div>
+    </div>
+    <div ngClass="tourism__scrollbox" [style.opacity]="opacity" (click)="scrollToInvitation()">
+        <img src="../../../../assets/icons/down-arrow.png" ngClass="tourism__scroll buttonTo" alt="scroll down icon">
+    </div>
+</main>
+
+<app-invitation></app-invitation>

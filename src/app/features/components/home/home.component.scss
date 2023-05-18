@@ -1,17 +1,5 @@
 @use '../../../../styles.scss' as *;
 
-@keyframes bounceArrow {
-    0%{
-        transform: translateY(10%);
-    }
-	50%{
-        transform: translateY(0%);
-    }
-	100%{
-        transform: translateY(10%);
-    }
-}
-
 @keyframes mainAppear {
     0%{
         opacity: 0;

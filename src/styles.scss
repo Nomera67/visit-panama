@@ -29,6 +29,11 @@ body{
 $panamaBlue: #005EB8;
 $panamaRed: #C8102E;
 
+//shared classes
+//class to make appear parts of pages
+
+
+
 //keyframes--------------------------------------------------------------------
 //Appearance of Panama Inscription around the CTA
 @keyframes panamaAppear {
@@ -140,5 +145,19 @@ $panamaRed: #C8102E;
     }
     100%{
         filter: blur(0rem);
+    }
+}
+
+
+//Boucing animation for arrow in main part of pages
+@keyframes bounceArrow {
+    0%{
+        transform: translateY(10%);
+    }
+	50%{
+        transform: translateY(0%);
+    }
+	100%{
+        transform: translateY(10%);
     }
 }

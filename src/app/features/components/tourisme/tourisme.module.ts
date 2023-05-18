@@ -3,15 +3,21 @@ import { CommonModule } from '@angular/common';
 
 import { TourismeRoutingModule } from './tourisme-routing.module';
 import { TourismeComponent } from './tourisme.component';
+import { InvitationComponent } from './invitation/invitation.component';
+
 
 
 @NgModule({
   declarations: [
-    TourismeComponent
+    TourismeComponent,
+    InvitationComponent,
   ],
   imports: [
     CommonModule,
     TourismeRoutingModule
   ]
 })
-export class TourismeModule { }
+export class TourismeModule { 
+
+  
+}
