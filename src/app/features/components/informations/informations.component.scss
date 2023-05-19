@@ -20,19 +20,20 @@
         padding: 40px 0;
         text-align: center;
         font-size: 900;
-        // position: fixed;
+        position: fixed;
         width: 100%;
         transform: translateY(-20%);
-        color: $panamaBlue;
+        
         & > h1{
+            color: white;
             font-size: clamp(3rem, 10vw, 6rem);
-            text-shadow: 5px 5px 5px rgba(0, 0, 0, .4);
+            text-shadow: 10px 5px 10px rgba(0, 0, 0, .6);
             font-style: italic;
         }
     }
     &__main{
-        background-image: url('../../../../assets/background/information-page/chema-photo-muEftVSPQGY-unsplash.jpg');
-        background-position: bottom;
+        background-image: url('../../../../assets/background/information-page/zdenek-machacek-0loy9XzGkAI-unsplash-light.jpg');
+        background-position: center;
         background-size: cover;
         height: 100vh;
         position: relative;
@@ -42,9 +43,9 @@
             place-items: center;
             position: absolute;
             inset: 0;
-            // -webkit-mask: url('');
-            // -webkit-mask-position: top;
-            // -webkit-mask-size: cover;
+            -webkit-mask: url('../../../../assets/background/information-page/sky.png');
+            -webkit-mask-position: center;
+            -webkit-mask-size: cover;
         }
     }
     &__introduction{
