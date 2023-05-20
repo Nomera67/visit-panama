@@ -1,0 +1,87 @@
+@use '../../../../styles.scss' as *;
+
+.information{
+    &__scroll{
+        display: block;
+        width: 75px;
+        animation: bounceArrow 1s linear infinite;
+    }
+    &__scrollbox{
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, .5);
+        border-radius: 50%;
+        opacity: 1;
+    }
+    &__title{
+        padding: 40px 0;
+        text-align: center;
+        font-size: 900;
+        position: fixed;
+        width: 100%;
+        transform: translateY(-20%);
+        
+        & > h1{
+            color: white;
+            font-size: clamp(3rem, 10vw, 6rem);
+            text-shadow: 10px 5px 10px rgba(0, 0, 0, .6);
+            font-style: italic;
+        }
+    }
+    &__secondary{
+        padding: 40px 0;
+        text-align: center;
+        font-size: 900;
+        position: fixed;
+        width: 100%;
+        transform: translateY(-320%) translateX(-10%);
+        & > h2{
+            color: white;
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, .6);
+            font-style: italic;
+        }
+        &__mask{
+            display: grid;
+            place-items: center;
+            position: absolute;
+            inset: 0;
+            -webkit-mask: url('../../../../assets/background/information-page/secondary-mask.png');
+            -webkit-mask-position: center;
+            -webkit-mask-size: cover;
+
+        }
+
+    }
+    &__main{
+        background-image: url('../../../../assets/background/information-page/zdenek-machacek-0loy9XzGkAI-unsplash-light.jpg');
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        position: relative;
+        animation: mainAppear 2s ease backwards;
+        &__mask{
+            display: grid;
+            place-items: center;
+            position: absolute;
+            inset: 0;
+            -webkit-mask: url('../../../../assets/background/information-page/sky-moutain.png');
+            -webkit-mask-position: center;
+            -webkit-mask-size: cover;
+        }
+    }
+    &__introduction{
+        animation: mainAppear 2s ease backwards;
+    }
+}
+
+@media (width < 1000px) {
+    .information{
+        &__secondary{
+            transform: translateY(-280%) translateX(-10%);
+        }
+    }
+}
