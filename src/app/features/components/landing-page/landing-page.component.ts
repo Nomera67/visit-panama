@@ -24,10 +24,11 @@ export class LandingPageComponent implements OnInit {
     svg?.classList.add('hideSvg');
     container?.classList.add('hideContainer');
     hiderContainer?.classList.add('disappearActive');
+    //Ajout d'un timer pour permettre de mettre les effets en SCSS avant de rediriger
     setTimeout(() => {
       // Redirection vers la page visée
       this._router.navigate(['/home']);
-    }, 7000);
+    }, 5000);
   }
   
 

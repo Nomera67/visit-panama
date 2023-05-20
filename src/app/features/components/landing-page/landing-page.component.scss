@@ -27,7 +27,7 @@
         place-items: center;
         & > svg{
             overflow: visible;
-            animation: panamaRotate 15s linear infinite, panamaAppear 2s 0.5s ease-in-out backwards;
+            animation: panamaRotate 15s linear infinite, panamaAppear 1s 0.5s ease-in-out backwards;
         }
     }
     &__CTA{
@@ -54,7 +54,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            animation:  ctaBeforeAppear 2s 2s ease backwards,backgroundDefilement 15s alternate infinite;
+            animation:  ctaBeforeAppear 1.5s 1.5s ease backwards,backgroundDefilement 15s alternate infinite;
             background: url('../../../../assets/background/landing-page/wave.svg') transparent;
             background-size: 1100%;
             background-position: 50% 0%;
@@ -64,24 +64,24 @@
             mix-blend-mode: difference;
             z-index: 5;
             backdrop-filter: 2rem;
-            animation: spanAppear 1s 2.75s ease backwards;
+            animation: spanAppear 1s 1.5s ease backwards;
         }
         &:hover{
             background-size: 2000%;
-            transform: scale(1.2) translate(-42%);
+            transform: scale(1.1) translate(-45%);
         }
     }
 }
 
 .hideCTA{
-    animation: ctaDesappear 2s ease-in-out forwards;
+    animation: ctaDesappear 1.5s ease-in-out forwards;
 }
 .hideSvg{
-    animation: panamaDesappear 2s 1.5s ease forwards;
+    animation: panamaDesappear 1.5s 1s ease forwards;
 }
 .hideContainer{
-    animation: containerDesappear 3s 3.5s ease forwards;
+    animation: containerDesappear 2s 2s ease forwards;
 }
 .disappearActive{
-    animation: disappearActive 2s 4.5s ease forwards;
+    animation: disappearActive 2s 3s ease forwards;
 }

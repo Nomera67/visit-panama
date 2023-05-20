@@ -27,16 +27,11 @@ export class TourismeComponent implements OnInit {
     const airplane = this.elementRef.nativeElement.querySelector('.tourism__plane');
     const tourismContainer = this.elementRef.nativeElement.querySelector('.tourism__main');
     
-    console.log(tourismTitle);
-    console.log(airplane);
-    console.log(tourismContainer);
     // Calculer la nouvelle position verticale du titre et de l'avion avec son altitude
     this.titlePos = Math.round((tourismContainer.getBoundingClientRect().top * -1) / 2);
     this.airplanePos = Math.round((tourismContainer.getBoundingClientRect().top * -1) * 2);
     this.airplaneAlt = Math.round(tourismContainer.getBoundingClientRect().top * -1);
 
-    console.log(this.titlePos);
-    console.log(this.airplanePos);
     // Appliquer les nouvelles positions
     tourismTitle.style.transform = `translateY(${this.titlePos}px)`;
     airplane.style.transform = `translateX(${this.airplanePos}px) translateY(-${this.airplaneAlt}px) rotateY(180deg)`;
