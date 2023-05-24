@@ -28,15 +28,10 @@ export class HomeComponent implements OnInit {
     const homeSubtitle = this.elementRef.nativeElement.querySelector('.home__title > p');
     const homeContainer = this.elementRef.nativeElement.querySelector('.home__main');
     
-    console.log(homeTitle);
-    console.log(homeSubtitle);
-    console.log(homeContainer);
     // Calculer la nouvelle position verticale du titre et du sous-titre
     this.titlePos = Math.round((homeContainer.getBoundingClientRect().top * -1) / 2);
     this.subTitlePos = Math.round((homeContainer.getBoundingClientRect().top * -1) / 4);
 
-    console.log(this.titlePos);
-    console.log(this.subTitlePos);
     // Appliquer les nouvelles positions verticales
     homeTitle.style.transform = `translateY(${this.titlePos}px)`;
     homeSubtitle.style.transform = `translateY(${this.subTitlePos}px)`;

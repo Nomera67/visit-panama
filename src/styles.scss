@@ -5,6 +5,12 @@
     box-sizing: border-box;
 }
 
+//Colors-----------------------------------------------------------------------
+
+$panamaBlue: #005EB8;
+$panamaRed: #C8102E;
+
+
 //Fonts------------------------------------------------------------------------
 @font-face {
     font-family: 'Poppins';
@@ -24,14 +30,25 @@ body{
     background: white;
 }
 
-//Colors
+//Scrollbar-------------------------------------------------------------------
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #c8102e;
+  }
 
-$panamaBlue: #005EB8;
-$panamaRed: #C8102E;
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 11px;
+  }
 
-//shared classes
-//class to make appear parts of pages
+  *::-webkit-scrollbar-track {
+    background: $panamaBlue;
+  }
 
+  *::-webkit-scrollbar-thumb {
+    background-color: #c8102e;
+  }
 
 
 //keyframes--------------------------------------------------------------------

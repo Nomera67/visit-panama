@@ -10,13 +10,13 @@
     <nav ngClass="navBar nav" id="navBar">
         <ul id="primary-navigation" data-visible="false" ngClass="nav__list" (mouseenter)="backgroundChange()">
             <li ngClass="nav__item">
-                <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ngClass="nav__link goHome"><span ngClass="nav__link__hover goHome" id="goHome" aria-hidden="true">Accueil</span>Accueil</a>             
+                <a (click)="toHome()" routerLinkActive [class.active]="isActive('/home')" [routerLinkActiveOptions]="{exact: true}" ngClass="nav__link goHome"><span ngClass="nav__link__hover goHome" id="goHome" aria-hidden="true">Accueil</span>Accueil</a>             
             </li>
             <li ngClass="nav__item">
-                <a routerLink="/tourisme" routerLinkActive="active" ngClass="nav__link goTourism"><span ngClass="nav__link__hover goTourism" aria-hidden="true">Tourisme</span>Tourisme</a> 
+                <a (click)="toTourisme()" routerLinkActive [class.active]="isActive('/tourisme')" ngClass="nav__link goTourism"><span ngClass="nav__link__hover goTourism" aria-hidden="true">Tourisme</span>Tourisme</a> 
             </li>
             <li ngClass="nav__item">
-                <a routerLink="/informations" routerLinkActive="active" ngClass="nav__link goInformations"><span ngClass="nav__link__hover goInformations" aria-hidden="true" id="goInformations">Informations</span>Informations</a> 
+                <a (click)="toInformations()" routerLinkActive [class.active]="isActive('/informations')" ngClass="nav__link goInformations"><span ngClass="nav__link__hover goInformations" aria-hidden="true" id="goInformations">Informations</span>Informations</a> 
             </li>
             <div ngClass="nav__list__background" id="background__menu" data-active-index="0"></div>
         </ul>

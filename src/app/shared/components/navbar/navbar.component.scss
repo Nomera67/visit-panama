@@ -91,6 +91,7 @@ header{
             font-weight: bold;
             text-decoration: none;
             position: relative;
+            cursor: pointer;
             &:hover{
                 &:before{
                     transform: scaleX(1);
