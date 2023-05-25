@@ -1,1 +1,18 @@
-<p>not-found works!</p>
+<div ngClass="error__container">
+    <div ngClass="error__card">
+        <h1>Vous êtes perdu ? Retrouvez votre chemin :</h1>
+        <div ngClass="error__redirection">
+            <div ngClass="error__link goHome" (click)="toHome()">
+                <p>Accueil</p>
+            </div>
+            <div ngClass="error__link goTourism" (click)="toTourism()">
+                <p>Tourisme au Panama</p>
+            </div>
+            <div ngClass="error__link goInformations" (click)="toInfo()">
+                <p>Informations de voyage</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
