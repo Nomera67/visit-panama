@@ -48,6 +48,8 @@ header{
     z-index: 5;
     &>img{
         width: 75px;
+        max-height: 57px;
+        display: block;
         cursor: pointer;
         height: fit-content;
     }

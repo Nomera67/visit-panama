@@ -66,11 +66,3 @@
         animation: mainAppear 2s ease backwards;
     }
 }
-
-@media (width <= 1100px){
-    .home{
-        &__hide{
-            z-index: 2;
-        }
-    }
-}
