@@ -34,7 +34,7 @@ body{
   /* Firefox */
   * {
     scrollbar-width: auto;
-    scrollbar-color: #c8102e;
+    scrollbar-color: $panamaRed;
   }
 
   /* Chrome, Edge, and Safari */
@@ -47,7 +47,7 @@ body{
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: #c8102e;
+    background-color: $panamaRed;
   }
 
 

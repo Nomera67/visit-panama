@@ -1,0 +1,114 @@
+@use '../../../../styles.scss' as *;
+
+.error{
+    &__container{
+        padding: 5rem 0;
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        place-items: center;
+        z-index: 0;
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../../../../assets/background/error-page/chema-photo-sugRfmGFWUs-unsplash.jpg');
+            background-size: cover;
+            filter: sepia(.5);
+        }
+    }
+    &__card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 2;
+        padding: 30px 60px;
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, .3);
+        & > h1 {
+            text-align: center;
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            color: white;
+            text-shadow: 2px 6px 5px #000;
+        }
+    }
+    &__redirection{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 20px;
+        gap: 30px;
+    }
+    &__link{
+        font-size: clamp(1.3rem, 2vw, 1.5rem);
+        font-family: 'IndieFlower';
+        text-shadow: 2px 6px 5px #000;
+        cursor: pointer;
+        width: 250px;
+        height: 300px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        transition: all 1s ease;
+        z-index: 4;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            filter: grayscale(1) blur(.1rem);
+            z-index: -1;
+            transition: all 1s ease;
+        }
+        &:nth-child(1){
+            color: white;
+            &::before{
+                background-image: url('../../../../assets/background/error-page/cards/pexels-clive-kim-4150034.jpg');
+            }
+        }
+        &:nth-child(2){
+            color: $panamaBlue;
+            &::before{
+                background-image: url('../../../../assets/background/error-page/cards/pexels-pavel-danilyuk-8985579.jpg');
+            }
+        }
+        &:nth-child(3){
+            color: $panamaRed;
+            &::before{
+                background-image: url('../../../../assets/background/error-page/cards/pexels-deyvi-darinel-9073820.jpg');
+            }
+        }
+        &:hover{
+            &::before{
+                filter: grayscale(0) blur(.025rem);
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+@media (width < 690px) {
+    .error{
+        &__container{
+            width: fit-content;
+            height: fit-content;
+        }
+        &__card{
+            padding: 30px 0px;
+        }
+        &__redirection{
+            padding: 20px 0;
+        }
+    }
+    
+}
